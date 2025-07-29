@@ -37,3 +37,25 @@ A machine learning project to predict Formula 1 podium finishes (top 3) based on
   - Handled `\N` and `et` placeholders minimally: `\N` and `et` in `final_position` replaced with '99', `\N` or 0 in `qualifying_position` replaced with median.
   - Created `podium` column (1 for top 3, 0 otherwise).
 - **Next**: Clean remaining placeholders and engineer features in `scripts/data_preprocessing.py`.
+## Data Collection
+- **Script**: `scripts/data_collection.py`
+- **Input**: `results.csv`, `races.csv`, `drivers.csv`, `constructors.csv` from `data/f1-data/`.
+- **Output**: `data/f1_race_results.csv` with columns: `season`, `race_name`, `circuitId`, `driverId`, `constructorId`, `driver`, `constructor`, `qualifying_position`, `final_position`, `podium`.
+- **Details**:
+  - Merged CSVs for 2010–2024 (hybrid era).
+  - Handled `\N` and `et` in `final_position` with '99', `\N` or 0 in `qualifying_position` with median.
+  - Included `driverId` and `constructorId` for further merges.
+
+## Data Cleaning & Feature Engineering
+- **Script**: `scripts/data_preprocessing.py`
+- **Input**: `data/f1_race_results.csv`, `drivers.csv`, `circuits.csv`
+- **Output**: `data/f1_cleaned_data.csv` with columns: `season`, `race_name`, `circuitId`, `driverId`, `constructorId`, `driver`, `constructor`, `qualifying_position`, `final_position`, `podium`, `driver_podium_rate`, `constructor_podium_rate`, `is_home_race`.
+- **Cleaning**:
+  - Replaced `\N` and `et` in `final_position` with 99.
+  - Filled NaN in `qualifying_position` with median.
+  - Replaced `\N` or NaN in `driver` with 'UNKNOWN'.
+- **Features**:
+  - `driver_podium_rate`: Historical podium rate per driver.
+  - `constructor_podium_rate`: Historical podium rate per constructor.
+  - `is_home_race`: 1 if driver’s nationality matches circuit country.
+- **Next**: Build ML models in `scripts/modeling.py`.
