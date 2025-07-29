@@ -43,8 +43,8 @@ df['qualifying_position'] = df['qualifying_position'].replace(0, median_grid)
 #create podium column(1 for top 3)
 df['podium'] = df['final_position'].apply(lambda x: 1 if x in ['1','2','3'] else 0)
 
-#select relevant column
-df = df[['season','race_name','circuitId','driver','constructor','qualifying_position','final_position','podium']]
+# Select relevant columns, including driverId and constructorId
+df = df[['season', 'race_name', 'circuitId', 'driverId', 'constructorId', 'driver', 'constructor', 'qualifying_position', 'final_position', 'podium']]
 
 #save to CSV
 output_path = 'data/f1_race_results.csv'
