@@ -60,6 +60,8 @@ for name,model in models.items():
     #train
     model.fit(X_train,y_train)
 
+    joblib.dump(model, f'results/{name.replace(" ", "_").lower()}_model.joblib')
+    
     #predict
     y_pred=model.predict(X_test_scaled)
     y_proba = model.predict_proba(X_test_scaled)[:,1] if hasattr(model,'predict_proba') else model.decision_function(X_test_scaled)
