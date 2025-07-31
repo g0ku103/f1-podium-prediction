@@ -1,0 +1,6 @@
+qualifying_position,driver_podium_rate,constructor_podium_rate,is_home_race,driver,constructor,race_name,season,podium_prediction,podium_probability
+1,0.35,0.4,1,LEC,Ferrari,Monaco Grand Prix,2025,1,0.767305
+2,0.28,0.35,0,VER,Red Bull,Monaco Grand Prix,2025,1,0.95235896
+3,0.15,0.2,0,NOR,McLaren,Monaco Grand Prix,2025,1,0.789707
+4,0.1,0.15,0,HAM,Mercedes,Monaco Grand Prix,2025,1,0.8064061
+5,0.05,0.1,0,SAI,Ferrari,Monaco Grand Prix,2025,0,0.31737888
