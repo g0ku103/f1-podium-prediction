@@ -1,6 +1,20 @@
-qualifying_position,driver_podium_rate,constructor_podium_rate,is_home_race,driver,constructor,race_name,season,podium_prediction,podium_probability
-1,0.35,0.4,1,LEC,Ferrari,Monaco Grand Prix,2025,1,0.767305
-2,0.28,0.35,0,VER,Red Bull,Monaco Grand Prix,2025,1,0.95235896
-3,0.15,0.2,0,NOR,McLaren,Monaco Grand Prix,2025,1,0.789707
-4,0.1,0.15,0,HAM,Mercedes,Monaco Grand Prix,2025,1,0.8064061
-5,0.05,0.1,0,SAI,Ferrari,Monaco Grand Prix,2025,0,0.31737888
+Track,qualifying_position,No,driver,constructor,Q1,Q2,Q3,Laps,code,nationality,circuitId,country,nationality_country,is_home_race,driver_podium_rate,constructor_podium_rate,podium_prediction,podium_probability
+Australia,1.0,4,Lando Norris,McLaren Mercedes,1:15.912,1:15.415,1:15.096,20,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,2.0,81,Oscar Piastri,McLaren Mercedes,1:16.062,1:15.468,1:15.180,18,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,3.0,1,Max Verstappen,Red Bull Racing Honda RBPT,1:16.018,1:15.565,1:15.481,17,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,4.0,63,George Russell,Mercedes,1:15.971,1:15.798,1:15.546,21,,,1,Australia,Other,0,0.0,0.460655737704918,1,0.88330853
+Australia,5.0,22,Yuki Tsunoda,Racing Bulls Honda RBPT,1:16.225,1:16.009,1:15.670,18,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,6.0,23,Alexander Albon,Williams Mercedes,1:16.245,1:16.017,1:15.737,21,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,7.0,16,Charles Leclerc,Ferrari,1:16.029,1:15.827,1:15.755,20,,,1,Australia,Other,0,0.0,0.3295081967213115,1,0.88330853
+Australia,8.0,44,Lewis Hamilton,Ferrari,1:16.213,1:15.919,1:15.973,23,,,1,Australia,Other,0,0.0,0.3295081967213115,1,0.88330853
+Australia,9.0,10,Pierre Gasly,Alpine Renault,1:16.328,1:16.112,1:15.980,21,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,10.0,55,Carlos Sainz,Williams Mercedes,1:16.360,1:15.931,1:16.062,21,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,11.0,6,Isack Hadjar,Racing Bulls Honda RBPT,1:16.354,1:16.175,,12,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,12.0,14,Fernando Alonso,Aston Martin Aramco Mercedes,1:16.288,1:16.453,,13,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,13.0,18,Lance Stroll,Aston Martin Aramco Mercedes,1:16.369,1:16.483,,15,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,14.0,7,Jack Doohan,Alpine Renault,1:16.315,1:16.863,,15,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,15.0,5,Gabriel Bortoleto,Kick Sauber Ferrari,1:16.516,1:17.520,,13,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,16.0,12,Kimi Antonelli,Mercedes,1:16.525,,,9,,,1,Australia,Other,0,0.0,0.460655737704918,1,0.88330853
+Australia,17.0,27,Nico Hulkenberg,Kick Sauber Ferrari,1:16.579,,,9,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,18.0,30,Liam Lawson,Red Bull Racing Honda RBPT,1:17.094,,,9,,,1,Australia,Other,0,0.0,0.0,0,0.31737888
+Australia,19.0,31,Esteban Ocon,Haas Ferrari,1:17.147,,,9,,,1,Australia,Other,0,0.0,0.0,0,0.31737888

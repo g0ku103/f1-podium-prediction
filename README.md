@@ -22,7 +22,7 @@ A machine learning project to predict Formula 1 podium finishes (top 3) based on
   - `\N` in `results.position`/`positionText` (non-finishes), `results.grid` (missing qualifying data), and `drivers.code` (older drivers).
   - Possible `et` or other placeholders (needs investigation, may be typos).
   - `grid` may have zeros for missing qualifying data.
-- **Next Steps**: Replace `\N` and `et` with appropriate values (e.g., high position for DNFs, median for grid), impute missing codes, and source weather data.
+
 
 ## Visualizations
 - **Driver-Wise Podium Trends**: Bar chart showing top 10 drivers by podium finishes (2010–2024). Saved as `visualizations/driver_podiums.png`.
@@ -36,7 +36,7 @@ A machine learning project to predict Formula 1 podium finishes (top 3) based on
   - Merged CSVs to create a unified dataset for 2010–2024 (hybrid era).
   - Handled `\N` and `et` placeholders minimally: `\N` and `et` in `final_position` replaced with '99', `\N` or 0 in `qualifying_position` replaced with median.
   - Created `podium` column (1 for top 3, 0 otherwise).
-- **Next**: Clean remaining placeholders and engineer features in `scripts/data_preprocessing.py`.
+
 ## Data Collection
 - **Script**: `scripts/data_collection.py`
 - **Input**: `results.csv`, `races.csv`, `drivers.csv`, `constructors.csv` from `data/f1-data/`.
@@ -58,4 +58,39 @@ A machine learning project to predict Formula 1 podium finishes (top 3) based on
   - `driver_podium_rate`: Historical podium rate per driver.
   - `constructor_podium_rate`: Historical podium rate per constructor.
   - `is_home_race`: 1 if driver’s nationality matches circuit country.
-- **Next**: Build ML models in `scripts/modeling.py`.
+## Modeling
+- **Script**: `scripts/modeling.py`
+- **Input**: `data/f1_cleaned_data.csv`
+- **Output**:
+  - `results/model_performance.csv`: Accuracy, precision, recall, F1-score, ROC-AUC for logistic regression, random forest, XGBoost.
+  - `results/roc_curves.png`: ROC curves for all models.
+  - `results/feature_importance_rf.png`: Feature importance for random forest.
+  - `results/feature_importance_xgb.png`: Feature importance for XGBoost.
+- **Details**:
+  - Features: `qualifying_position`, `driver_podium_rate`, `constructor_podium_rate`, `is_home_race`.
+  - Train: 2010–2020, Test: 2021–2024.
+  - Models: Logistic regression (simple), random forest (robust), XGBoost (high performance).
+  ## Modeling
+- **Script**: `scripts/modeling.py`
+- **Input**: `data/f1_cleaned_data.csv`
+- **Output**:
+  - `results/model_performance.csv`: Accuracy, precision, recall, F1-score, ROC-AUC.
+  - `results/roc_curves.png`: ROC curves.
+  - `results/feature_importance_rf.png`, `results/feature_importance_xgb.png`: Feature importance.
+  - `results/scaler.joblib`, `results/*_model.joblib`: Saved scaler and models.
+- **Details**:
+  - Features: `qualifying_position`, `driver_podium_rate`, `constructor_podium_rate`, `is_home_race`.
+  - Train: 2010–2020, Test: 2021–2024.
+  - Models: Logistic regression (F1: 0.491), random forest (F1: 0.283), XGBoost (F1: 0.538, best).
+- **Analysis**: XGBoost outperforms due to highest F1-Score and accuracy. `qualifying_position` and `driver_podium_rate` are likely key predictors (see feature importance plots).
+
+## Deployment
+- **Script**: `scripts/deploy_model.py`
+- **Input**: `data/F1_2025_Dataset/F1_2025_QualifyingResults.csv`, historical data, `results/scaler.joblib`, `results/xgboost_model.joblib`
+- **Output**:
+  - `results/2025_predictions.csv`: Predicted podiums for 2025 Australia race.
+  - `results/shap_summary_plot.png`: SHAP feature importance.
+  - `results/top_5_podium_probabilities.png`: Seaborn bar plot of top 5 podium probabilities.
+- **Details**: Uses XGBoost with 2025 qualifying data. Handles 'NC' by exclusion and adds Seaborn for better interpretability.
+- **Insights**: Predictions should favor top qualifiers; compare with hypothetical real podium.
+- **Future Work**: Add weather, refine model for better accuracy.
